@@ -1,12 +1,39 @@
-public class dice {
-    private int MAX = 6; //Maximum værdi
+public class dice
+{
+    private final int MAX = 6; //Maximum værdi
 
     private int faceValue; //nuværende værdi
 
     //Konstruktør
-    public dice(int value)
+    public dice()
+    {
+        faceValue = 1;
+    }
+    //kaster terning
+    public int roll()
+    {
+        faceValue =(int)(Math.random()*MAX)+1;
+
+        return faceValue;
+    }
+
+    //mutator
+    public void setFaceValue(int value)
     {
         faceValue = value;
+    }
+
+    //hent værdi
+    public int getFaceValue()
+    {
+        return faceValue;
+    }
+
+    //tekst af objektets data
+    public String toString()
+    {
+        String result = Integer.toString(faceValue);
+        return result;
     }
 
 
