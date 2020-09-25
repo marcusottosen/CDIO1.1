@@ -5,6 +5,12 @@ public class main {
         //----------------------------------------
         //OPRETTELSE AF DICE & SPILLER 1 & 2
         //----------------------------------------
+        int p1Score=0;
+        int p2Score=0;
+
+        Dice d1 = new Dice();
+        Dice d2 = new Dice();
+
 
 
 
