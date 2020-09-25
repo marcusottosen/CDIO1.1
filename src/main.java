@@ -12,8 +12,8 @@ public class main {
         p1Turn = true;
         p2Turn = false;
 
-        Dice d1 = new Dice();
-        Dice d2 = new Dice();
+        dice d1 = new dice();
+        dice d2 = new dice();
 
         while (p1Score <= 40 || p2Score <= 40){
 
@@ -22,6 +22,7 @@ public class main {
                 d1.roll();
                 d2.roll();
                 p1Score = p1Score+d1+d2;
+                System.out.println(p1Score);
 
                 p1Turn = false;
 
@@ -30,6 +31,7 @@ public class main {
                 d1.roll();
                 d2.roll();
                 p2Score = p2Score+d1+d2;
+                System.out.println(p2Score);
 
                 p2Turn = false;
 
