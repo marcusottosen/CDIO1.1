@@ -18,24 +18,20 @@ public class main {
         while (p1Score <= 40 || p2Score <= 40){
 
 
-            do{
+            while(p1Score <= 40){
                 d1.roll();
                 d2.roll();
-                p1Score = p1Score+d1+d2;
-                System.out.println(p1Score);
+                p1Score = p1Score+d1.getFaceValue()+d2.getFaceValue();
+                System.out.println("Player 1 har "+ p1Score + " point");
 
-                p1Turn = false;
-
-            } while (p1Turn == true);
-            do{
+            }
+            while(p2Score <= 40){
                 d1.roll();
                 d2.roll();
-                p2Score = p2Score+d1+d2;
-                System.out.println(p2Score);
+                p2Score = p2Score+d1.getFaceValue()+d2.getFaceValue();
+                System.out.println("Player 2 har "+ p2Score + " point");
 
-                p2Turn = false;
-
-            } while (p2Turn == true);
+            }
         }
 
         if(p1Score >= 40){
