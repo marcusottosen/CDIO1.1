@@ -42,7 +42,9 @@ public class main {
                 }
             }
         }
-
+        //-------------------------------------
+        //RESULTAT AF TERNING KAST
+        //-------------------------------------
         if (p1Score==p2Score){
             System.out.println("Den blev uafgjort!");
         }
