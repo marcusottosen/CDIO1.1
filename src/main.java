@@ -1,7 +1,6 @@
 public class main {
     public static void main(String[] args) {
 
-
         //----------------------------------------
         //OPRETTELSE AF DICE & SPILLER 1 & 2
         //----------------------------------------
