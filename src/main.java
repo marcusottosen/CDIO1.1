@@ -25,13 +25,14 @@ public class main {
                 d1.roll();  //Ruller terning 1
                 d2.roll();  //Ruller terning 2
                 p1Score = p1Score+d1.getFaceValue()+d2.getFaceValue();
+                System.out.println("\nPlayer 1 slog " + d1.getFaceValue() + " og " + d2.getFaceValue());
                 System.out.println("Player 1 har "+ p1Score + " point");
                 if (d1.getFaceValue() == d2.getFaceValue()){
                     if(d1.getFaceValue() == 1 && d2.getFaceValue() == 1){
                         p1Score = 0;
-                        System.out.println("Player 1 har mistet sine point");
+                        System.out.print("Player 1 har mistet sine point\n");
                     }
-                    System.out.println("Player 1 får en ekstra tur");
+                    System.out.print("Player 1 får en ekstra tur\n");
                     continue;
                 }
                 else {
@@ -44,6 +45,7 @@ public class main {
                 d1.roll();  //Ruller terning 1
                 d2.roll();  //Ruller terning 2
                 p2Score = p2Score+d1.getFaceValue()+d2.getFaceValue();
+                System.out.println("\nPlayer 2 slog " + d1.getFaceValue() + " og " + d2.getFaceValue());
                 System.out.println("Player 2 har "+ p2Score + " point");
                 if (p1Score>=40 || p2Score>=40){
                     break outer;    //Hopper ud af det yderste while loop navngivet "outer"
@@ -51,9 +53,9 @@ public class main {
                 if (d1.getFaceValue() == d2.getFaceValue()){
                     if(d1.getFaceValue() == 1 && d2.getFaceValue() == 1){
                         p2Score = 0;
-                        System.out.println("Player 2 har mistet sine point");
+                        System.out.print("Player 2 har mistet sine point\n");
                     }
-                    System.out.println("Player 2 får en ekstra tur");
+                    System.out.print("Player 2 får en ekstra tur\n");
                     continue;
                 }
                 else {
