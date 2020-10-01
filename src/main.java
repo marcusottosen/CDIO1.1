@@ -26,8 +26,18 @@ public class main {
                 d2.roll();  //Ruller terning 2
                 p1Score = p1Score+d1.getFaceValue()+d2.getFaceValue();
                 System.out.println("Player 1 har "+ p1Score + " point");
-                p1Turn=false;
-                p2Turn=true;
+                if (d1.getFaceValue() == d2.getFaceValue()){
+                    if(d1.getFaceValue() == 1 && d2.getFaceValue() == 1){
+                        p1Score = 0;
+                        System.out.println("Player 1 har mistet sine point");
+                    }
+                    System.out.println("Player 1 får en ekstra tur");
+                    continue;
+                }
+                else {
+                    p1Turn=false;
+                    p2Turn=true;
+                }
             }
 
             while(p2Turn){ //Spiller 2
@@ -37,7 +47,16 @@ public class main {
                 System.out.println("Player 2 har "+ p2Score + " point");
                 if (p1Score>=40 || p2Score>=40){
                     break outer;    //Hopper ud af det yderste while loop navngivet "outer"
-                }else {
+                }
+                if (d1.getFaceValue() == d2.getFaceValue()){
+                    if(d1.getFaceValue() == 1 && d2.getFaceValue() == 1){
+                        p2Score = 0;
+                        System.out.println("Player 2 har mistet sine point");
+                    }
+                    System.out.println("Player 2 får en ekstra tur");
+                    continue;
+                }
+                else {
                     p2Turn = false;
                     p1Turn = true;
                 }
