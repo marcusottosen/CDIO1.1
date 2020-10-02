@@ -1,5 +1,5 @@
-public class main {
-    public static void main(String[] args) {
+public class game {
+    public void main() {
 
 
         //----------------------------------------
@@ -15,6 +15,13 @@ public class main {
         dice d1 = new dice();
         dice d2 = new dice();
 
+        int preD1P1, preD2P1, preD1P2, preD2P2;
+
+        preD1P1 = 0;
+        preD2P1 = 0;
+        preD1P2 = 0;
+        preD2P2 = 0;
+
 
         //----------------------------------------
         //LOGIK
@@ -24,9 +31,18 @@ public class main {
             while(p1Turn){  //Spiller 1
                 d1.roll();  //Ruller terning 1
                 d2.roll();  //Ruller terning 2
+                //Tjekker først om der er blevet slået 2 6'ere i 2 ture i træk.
+
+                if (d1.getFaceValue() == 6 && d2.getFaceValue() == 6 && preD1P1 == 6 && preD2P1 == 6){
+                    break outer;
+                }
+
+
+                //Her starter turen efter der er tjekket for 6'ere
                 p1Score = p1Score+d1.getFaceValue()+d2.getFaceValue();
                 System.out.println("\nPlayer 1 slog " + d1.getFaceValue() + " og " + d2.getFaceValue());
                 System.out.println("Player 1 har "+ p1Score + " point");
+
                 if (d1.getFaceValue() == d2.getFaceValue()){
                     if(d1.getFaceValue() == 1 && d2.getFaceValue() == 1){
                         p1Score = 0;
@@ -39,11 +55,20 @@ public class main {
                     p1Turn=false;
                     p2Turn=true;
                 }
+                //Tilføjer værdien af slaget til variable for at vi kan sammenligne næste slag med forrige slag.
+                preD1P1 = d1.getFaceValue();
+                preD2P1 = d2.getFaceValue();
             }
 
             while(p2Turn){ //Spiller 2
                 d1.roll();  //Ruller terning 1
                 d2.roll();  //Ruller terning 2
+                //Tjekker først om der er blevet slået 2 6'ere i 2 ture i træk
+                if (d1.getFaceValue() == 6 && d2.getFaceValue() == 6 && preD1P2 == 6 && preD2P2 == 6){
+                    break outer;
+                }
+
+                //Her starter turen efter der er tjekket for 6'ere
                 p2Score = p2Score+d1.getFaceValue()+d2.getFaceValue();
                 System.out.println("\nPlayer 2 slog " + d1.getFaceValue() + " og " + d2.getFaceValue());
                 System.out.println("Player 2 har "+ p2Score + " point");
@@ -62,6 +87,9 @@ public class main {
                     p2Turn = false;
                     p1Turn = true;
                 }
+                //Tilføjer værdien af slaget til variable for at vi kan sammenligne næste slag med forrige slag.
+                preD1P2 = d1.getFaceValue();
+                preD2P2 = d2.getFaceValue();
             }
         }
         //-------------------------------------
@@ -76,5 +104,6 @@ public class main {
             System.out.println("Player 2 has won!");
         }
     }
+
 }
 
